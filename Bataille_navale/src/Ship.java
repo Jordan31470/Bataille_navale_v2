@@ -12,7 +12,8 @@ public class Ship {
 		this.model = m;
 		this.direction = d;
 	}
-		public boolean isOnplot(Plot plot) {
+		
+	public boolean isOnplot(Plot plot) {
 			if (this.listeCases.contains(plot)){
 				return true;
 			}
@@ -21,6 +22,18 @@ public class Ship {
 			}
 					
 		}
+	public void initListCoord() {
+		this.listeCases.add(coordonnes);
+		for(int i = 1; i<this.model.getTaille();i++) {
+			this.listeCases.add(this.listeCases.get(i-1).getPlotTo(direction));
+			
+		}
+	}
+	
+	public String affichePosition() {
+		
+	}
+	
 		
 	
 }

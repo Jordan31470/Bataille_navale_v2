@@ -1,48 +1,43 @@
 public class BoardPlot implements Plot{
-	private int Abscisse;
-	private int Ordonner;
+	private int abscisse;
+	private int ordonner;
 	
-	public BoardPlot(int Abscisse,int Ordonner) {
+	public BoardPlot(int abscisse,int Ordonner) {
 		
-		this.Abscisse=Abscisse;
-		this.Ordonner=Ordonner;
+		this.abscisse=abscisse;
+		this.ordonner=Ordonner;
 		
 	}
 
 	@Override
 	public int getAbscisse() {
 		// TODO Auto-generated method stub
-		return this.Abscisse;
+		return this.abscisse;
 	}
 
 	@Override
 	public int getOrdonner() {
 		// TODO Auto-generated method stub
-		return this.Ordonner;
+		return this.ordonner;
 	}
 
 	@Override
 	public Plot getPlotTo(Direction direction) {
 		// TODO Auto-generated method stub
-		switch(direction)
-        {
+		switch(direction){
             case NORD:
-                return new BoardPlot(this.Abscisse ,this.Ordonner-1);
-                break;
+                return new BoardPlot(this.abscisse+1 ,this.ordonner);
             case SUD:
-            	return new BoardPlot(this.Abscisse,this.Ordonner+1);
-                break;
+            	return new BoardPlot(this.abscisse-1,this.ordonner);
             case OUEST:
-            	return new BoardPlot(this.Abscisse+1,this.Ordonner);
-                break;
+            	return new BoardPlot(this.abscisse,this.ordonner+1);
             case EST:
-            	return new BoardPlot(this.Abscisse-1,this.Ordonner);
+            	return new BoardPlot(this.abscisse,this.ordonner-1);
             default:
             	return new BoardPlot(0,0);
         }
     }
-	}
-
 }
+
 
 	
