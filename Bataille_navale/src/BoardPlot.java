@@ -22,9 +22,25 @@ public class BoardPlot implements Plot{
 	}
 
 	@Override
-	public int getPlotTo(Direction direction) {
+	public Plot getPlotTo(Direction direction) {
 		// TODO Auto-generated method stub
-		return 0;
+		switch(direction)
+        {
+            case NORD:
+                return new BoardPlot(this.Abscisse ,this.Ordonner-1);
+                break;
+            case SUD:
+            	return new BoardPlot(this.Abscisse,this.Ordonner+1);
+                break;
+            case OUEST:
+            	return new BoardPlot(this.Abscisse+1,this.Ordonner);
+                break;
+            case EST:
+            	return new BoardPlot(this.Abscisse-1,this.Ordonner);
+            default:
+            	return new BoardPlot(0,0);
+        }
+    }
 	}
 
 }
